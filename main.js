@@ -422,10 +422,12 @@ function disableOptionsQ11Desarrollos(button){
 }
 
 function getValues(){
+  // Personal Information
   q0companyName = document.getElementById("companyName").value
   q0staffName = document.getElementById("staffName").value
   q0email = document.getElementById("email").value
   q0phone = document.getElementById("phone").value
+  // Q1
   let q1PRE = document.getElementsByName("q1")
   for (let i = 0; i < q1PRE.length; i++) {
     if(q1PRE[i].checked == true){
@@ -433,12 +435,12 @@ function getValues(){
       break
     }
   }
+  // Q2
   let q2reventaPRE = document.getElementsByName("q2reventa")
   q2reventa = q2reventaPRE[0].value
   let q2desarrollosPRE = document.getElementsByName("q2desarrollos")
   q2desarrollos = q2desarrollosPRE[0].value
-
-
+// Q3
   let q3reventaPRE = document.getElementsByName("q3reventa")
   for (let i = 0; i < q3reventaPRE.length; i++) {
     if(q3reventaPRE[i].checked == true){
@@ -446,7 +448,6 @@ function getValues(){
       break
     }
   }
-
   let q3desarrollosPRE = document.getElementsByName("q3desarrollos")
   for (let i = 0; i < q3desarrollosPRE.length; i++) {
     if(q3desarrollosPRE[i].checked == true){
@@ -454,13 +455,12 @@ function getValues(){
       break
     }
   }
-
-
+// Q4
   let q4reventaPRE = document.getElementsByName("q4reventa")
   q4reventa = q4reventaPRE[0].value
   let q4desarrollosPRE = document.getElementsByName("q4desarrollos")
   q4desarrollos = q4desarrollosPRE[0].value
-
+// Q5
   let q5reventaPRE = document.getElementsByName("q5reventa")
   for (let i = 0; i < q5reventaPRE.length; i++) {
     if(q5reventaPRE[i].checked == true){
@@ -475,12 +475,62 @@ function getValues(){
       break
     }
   }
-
-  q6 = document.getElementsByName("q6")
-  q7 = [document.getElementsByName("q7reventa"), document.getElementsByName("q7desarrollos")]
-  q8 = [document.getElementsByName("q8reventa"), document.getElementsByName("q8desarrollos")]
-  q9 = [document.getElementsByName("q9reventa"), document.getElementsByName("q9desarrollos")]
-  q10 = [document.getElementsByName("q10reventa"), document.getElementsByName("q10desarrollos")]
+// Q6
+  let q6reventaPRE = document.getElementsByName("q6reventa")
+  q6reventa = q6reventaPRE[0].value
+  let q6desarrollosPRE = document.getElementsByName("q6desarrollos")
+  q6desarrollos = q6desarrollosPRE[0].value
+  // Q7
+  let q7reventaPRE = document.getElementsByName("q7reventa")
+  for (let i = 0; i < q7reventaPRE.length; i++) {
+    if(q7reventaPRE[i].checked == true){
+      q7reventa = q7reventaPRE[i].value;
+      break
+    }
+  }
+  let q7desarrollosPRE = document.getElementsByName("q7desarrollos")
+  for (let i = 0; i < q7desarrollosPRE.length; i++) {
+    if(q7desarrollosPRE[i].checked == true){
+      q7desarrollos = q7desarrollosPRE[i].value;
+      break
+    }
+  }
+  // Q8
+  let q8reventaPRE = document.getElementsByName("q8reventa")
+  for (let i = 0; i < q8reventaPRE.length; i++) {
+    if(q8reventaPRE[i].checked == true){
+      q8reventa = q8reventaPRE[i].value;
+      break
+    }
+  }
+  let q8desarrollosPRE = document.getElementsByName("q8desarrollos")
+  for (let i = 0; i < q8desarrollosPRE.length; i++) {
+    if(q8desarrollosPRE[i].checked == true){
+      q8desarrollos = q8desarrollosPRE[i].value;
+      break
+    }
+  }
+  // Q9
+  let q9reventaPRE = document.getElementsByName("q9reventa")
+  for (let i = 0; i < q9reventaPRE.length; i++) {
+    if(q9reventaPRE[i].checked == true){
+      q9reventa = q9reventaPRE[i].value;
+      break
+    }
+  }
+  let q9desarrollosPRE = document.getElementsByName("q9desarrollos")
+  for (let i = 0; i < q9desarrollosPRE.length; i++) {
+    if(q9desarrollosPRE[i].checked == true){
+      q9desarrollos = q9desarrollosPRE[i].value;
+      break
+    }
+  }
+  // Q10
+  let q10reventaPRE = document.getElementsByName("q10reventa")
+  for (let i = 0; i < q10reventaPRE.length; i++) {
+      q10reventa.push(q10reventaPRE[i].value)
+  }
+  let q10desarrollosPRE = document.getElementsByName("q10desarrollos")
   q11 = [document.getElementsByName("q11reventa"), document.getElementsByName("q11desarrollos")]
   q12 = [document.getElementsByName("q12reventa"), document.getElementsByName("q12desarrollos")]
   q13 = [document.getElementsByName("q13reventa"), document.getElementsByName("q13desarrollos")]
@@ -500,6 +550,17 @@ function getValues(){
   console.log("Q3 Desarrollos:", q3desarrollos)
   console.log("Q4 Reventa:", q4reventa)
   console.log("Q4 Desarrollos:", q4desarrollos)
+  console.log("Q5 Reventa:", q5reventa)
+  console.log("Q5 Desarrollos:", q5desarrollos)
+  console.log("Q6 Reventa:" ,q6reventa)
+  console.log("Q6 Desarrollos:", q6desarrollos)
+  console.log("Q7 Reventa;", q7reventa)
+  console.log("Q7 Desarrollos:", q7desarrollos)
+  console.log("Q8 Reventa:", q8reventa)
+  console.log("Q8 Desarrollos;", q8desarrollos)
+  console.log("Q9 Reventa:", q9reventa)
+  console.log("Q9 Desarrollos:", q9desarrollos)
+  console.log("Q10 Reventa:", q10reventa)
 }
 // function validateValues(q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18){
 //   if(q0[1].value == ""){
