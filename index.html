@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/faviconCEMDI.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <title>Encuesta Sector Inmobiliario</title>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light sticky-top" style="display: flex; justify-content: center;">
+    <a class="navbar-brand" href="https://www.facebook.com/CEMDI.METROPOLITANO" target="_blank">
+      <img src="assets/faviconCEMDI.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      CEMDI
+    </a>
+  </nav>
+  <div class="container-fluid d-grid gap-2 p-3" id="deleteDiv">
+    <div id="welcomeInformation">
+      <h1 class="text-left" style="padding: 0;">Encuesta para Agentes: Sector Inmobiliario</h1>
+      <h1 class="text-left" style="padding: 0;">Zona Costa de Baja California 2023</h1>
+      <h4 class="text-justify" style="padding-bottom: 20px;">Agradecemos de su apoyo en contestar la siguiente encuesta, sus respuestas nos ayudarán para conocer la situación en el sector inmobiliario y posteriormente generar un registro histórico.
+      </h4>
+      <!-- <h4 class="text-justify">Indique la respuesta del mes que corresponda en cada una de las casillas, se presenta de Enero a mayil de 2023.
+      </h4> -->
+      <h4 class="text-danger">Todos los datos que proporcione son confidenciales y se utilizarán únicamente con fines estadísticos.</h4>
+    </div>
+    <div id="personalInformation">
+      <h5 style="padding: 0;"><strong>Información del encuestado</strong></h5>
+      <h5 class="fst-italic" style="padding-bottom: 10px; padding-top: 0;">*Obligatorio</h5>
+      <div class="input-group mb-2" style="padding-bottom: 10px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default">Nombre</span>
+        </div>
+        <input type="text" id ="companyName" class="form-control" placeholder="Opcional" name="personalInformation">
+      </div>
+      <div class="input-group mb-2" style="padding-bottom: 10px;">
+        <div class="input-group-prepend d-flex">
+          <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default">* Empresa</span>
+        </div>
+        <input type="text" id ="staffName" class="form-control" required placeholder="Obligatorio" name="personalInformation">
+      </div>
+      <div class="input-group mb-2" style="padding-bottom: 10px;">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default">Correo</span>
+        </div>
+        <input type="text" id ="email" class="form-control" placeholder="Opcional" name="personalInformation">
+      </div>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default">Teléfono</span>
+        </div>
+        <input type="text" id ="phone" class="form-control" placeholder="Opcional" name="personalInformation">
+      </div>
+    </div>
+    <div id="questionsInGrid">
+      <h4 style="padding-top: 20px; padding-bottom: 0;"><strong>Preguntas</strong></h4>
+      <div class="q1">
+        <h5 style="padding-top: 0;">1.- Seleccione la opción que mejor describe su posición:</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="agenteIndependiente" id="q1o1">
+          <label class="form-check-label">
+            Agente independiente
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q1" value="agenteEnAgenciaInmboliaria" id="q1o2">
+          <label class="form-check-label">
+            Represento un desarrollo inmobiliario
+          </label>
+        </div>
+      </div>
+      <div class="q2">
+        <h5>2.- ¿Cuántas unidades de <strong>condominios</strong> vendió durante el 2023?</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Escribe la cantidad o selecciona la casilla "No vendo condominios"</footer>
+        </blockquote>
+        <div>
+          <cite>No vendo condominios</cite>
+          <input type="checkbox" id="noVendoCondominiosBoton" onclick="novendocondominios(this)"name="q2" >
+        </div>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th>Reventa <input type="number" name="q2reventa" id="q2InputReventaCantidadCondominios"></th>
+              <th>Desarrollos <input type="number" name="q2desarrollos" id="q2InputDesarrollosCantidadCondominios"></th>
+            </tr>
+            <tr>
+              <th>No vendo <input type="checkbox" value="noVendoReventaCondominios" name="q2" id="q2CheckboxNoVendoReventaCondominios" onclick="noVendoReventaCondominios(this)"></th>
+              <th>No vendo <input type="checkbox" value="noVendoDesarrollosCondominios" name="q2" id="q2CheckboxNoVendoDesarrollosCondominios" onclick="noVendoDesarrollosCondominios(this)"></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q3">
+        <h5>3.- ¿Cuál es el promedio de los <strong>condominios</strong> vendidos en...? (doláres)</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>$100K a $150K</th>
+              <td><input type="radio" name="q3reventa" value="100Ka150Kreventa" id="q3o1reventa"></td>
+              <td><input type="radio" name="q3desarrollos" value="100Ka150Kdesarrollos" id="q3o1desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$151K a $200K</th>
+              <td><input type="radio" name="q3reventa" value="151Ka200Kreventa" id="q3o2reventa"></td>
+              <td><input type="radio" name="q3desarrollos" value="151Ka200Kdesarrollos" id="q3o2desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$201K a $250K</th>
+              <td><input type="radio" name="q3reventa" value="201Ka250Kreventa" id="q3o3reventa"></td>
+              <td><input type="radio" name="q3desarrollos" value="201Ka250Kdesarrollos" id="q3o3desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$251K a $300K</th>
+              <td><input type="radio" name="q3reventa" value="251Ka300Kreventa" id="q3o4reventa"></td>
+              <td><input type="radio" name="q3desarrollos" value="251Ka300Kdesarrollos" id="q3o4desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$301K a $350K</th>
+              <td><input type="radio" name="q3reventa" value="301Ka350Kreventa" id="q3o5reventa"></td>
+              <td><input type="radio" name="q3desarrollos" value="301Ka350Kdesarrollos" id="q3o5desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$351K a $400K</th>
+              <td><input type="radio" name="q3reventa" value="351Ka400Kreventa" id="q3o6reventa"></td>
+              <td><input type="radio" name="q3desarrollos" value="351Ka400Kdesarrollos" id="q3o6desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$401K a $450K</th>
+              <td><input type="radio" name="q3reventa" value="401Ka450Kreventa" id="q3o7reventa"></td>
+              <td><input type="radio" name="q3desarrollos" value="401Ka450Kdesarrollos" id="q3o7desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$451K a $500K</th>
+              <td><input type="radio" name="q3reventa" value="451Ka500Kreventa" id="q3o8reventa"></td>
+              <td><input type="radio" name="q3desarrollos" value="451Ka500Kdesarrollos" id="q3o8desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$501K+</th>
+              <td><input type="radio" name="q3reventa" value="501K+reventa" id="q3o9reventa"></td>
+              <td><input type="radio" name="q3desarrollos" value="501K+desarrollos" id="q3o9desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q3reventa" value="novendoreventa" id="q3o10reventa"></td>
+              <td><input type="radio" name="q3desarrollos" value="novendodesarrollos" id="q3o10desarrollos"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q4">
+        <h5>4.- ¿Cuántas unidades de <strong>casas</strong> vendió durante el 2023?</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Escribe la cantidad o selecciona la casilla "No vendo casas"</footer>
+        </blockquote>
+        <div>
+          <cite>No vendo casas</cite>
+          <input type="checkbox" id="noVendoCasasBoton" onclick="novendocasas(this)"name="q4" >
+        </div>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th>Reventa <input type="number" name="q4reventa" id="q4InputReventaCantidadCasas"></th>
+              <th>Desarrollos <input type="number" name="q4desarrollos" id="q4InputDesarrollosCantidadCasas"></th>
+            </tr>
+            <tr>
+              <th>No vendo <input type="checkbox" value="noVendoReventaCasas" name="q4" id="q4CheckboxNoVendoReventaCasas" onclick="noVendoReventaCasas(this)"></th>
+              <th>No vendo <input type="checkbox" value="noVendoDesarrollosCasas" name="q4" id="q4CheckboxNoVendoDesarrollosCasas" onclick="noVendoDesarrollosCasas(this)"></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q5">
+        <h5>5.- ¿Cuál es el promedio de las <strong>casas</strong> vendidas en...? (doláres)</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>$100K a $150K</th>
+              <td><input type="radio" name="q5reventa" value="100Ka150Kreventa" id="q5o1reventa"></td>
+              <td><input type="radio" name="q5desarrollos" value="100Ka150Kdesarrollos" id="q5o1desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$151K a $200K</th>
+              <td><input type="radio" name="q5reventa" value="151Ka200Kreventa" id="q5o2reventa"></td>
+              <td><input type="radio" name="q5desarrollos" value="151Ka200Kdesarrollos" id="q5o2desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$201K a $250K</th>
+              <td><input type="radio" name="q5reventa" value="201Ka250Kreventa" id="q5o3reventa"></td>
+              <td><input type="radio" name="q5desarrollos" value="201Ka250Kdesarrollos" id="q5o3desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$251K a $300K</th>
+              <td><input type="radio" name="q5reventa" value="251Ka300Kreventa" id="q5o4reventa"></td>
+              <td><input type="radio" name="q5desarrollos" value="251Ka300Kdesarrollos" id="q5o4desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$301K a $350K</th>
+              <td><input type="radio" name="q5reventa" value="301Ka350Kreventa" id="q5o5reventa"></td>
+              <td><input type="radio" name="q5desarrollos" value="301Ka350Kdesarrollos" id="q5o5desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$351K a $400K</th>
+              <td><input type="radio" name="q5reventa" value="351Ka400Kreventa" id="q5o6reventa"></td>
+              <td><input type="radio" name="q5desarrollos" value="351Ka400Kdesarrollos" id="q5o6desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$401K a $450K</th>
+              <td><input type="radio" name="q5reventa" value="401Ka450Kreventa" id="q5o7reventa"></td>
+              <td><input type="radio" name="q5desarrollos" value="401Ka450Kdesarrollos" id="q5o7desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$451K a $500K</th>
+              <td><input type="radio" name="q5reventa" value="451Ka500Kreventa" id="q5o8reventa"></td>
+              <td><input type="radio" name="q5desarrollos" value="451Ka500Kdesarrollos" id="q5o8desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$501K+</th>
+              <td><input type="radio" name="q5reventa" value="501K+reventa" id="q5o9reventa"></td>
+              <td><input type="radio" name="q5desarrollos" value="501K+desarrollos" id="q5o9desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q5reventa" value="novendoreventa" id="q5o10reventa"></td>
+              <td><input type="radio" name="q5desarrollos" value="novendodesarrollos" id="q5o10desarrollos"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q6">
+        <h5>6.- ¿Cuántas unidades de <strong>lotes</strong> vendió durante el 2023?</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Escribe la cantidad o selecciona la casilla "No vendo lotes"</footer>
+        </blockquote>
+        <div>
+          <cite>No vendo lotes</cite>
+          <input type="checkbox" id="noVendoLotesBoton" onclick="novendolotes(this)"name="q6" >
+        </div>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th>Reventa <input type="number" name="q6" id="q6InputReventaCantidadLotes"></th>
+              <th>Desarrollos <input type="number" name="q6" id="q6InputDesarrollosCantidadLotes"></th>
+            </tr>
+            <tr>
+              <th>No vendo <input type="checkbox" value="noVendoReventaCasas" name="q6" id="q6CheckboxNoVendoReventaLotes" onclick="noVendoReventaLotes(this)"></th>
+              <th>No vendo <input type="checkbox" value="noVendoDesarrollosCasas" name="q6" id="q6CheckboxNoVendoDesarrollosLotes" onclick="noVendoDesarrollosLotes(this)"></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q7">
+        <h5>7.- ¿Cuál es el promedio de los <strong>lotes</strong> vendidos en...? (doláres)</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>$100K a $150K</th>
+              <td><input type="radio" name="q7reventa" value="100Ka150Kreventa" id="q7o1reventa"></td>
+              <td><input type="radio" name="q7desarrollos" value="100Ka150Kdesarrollos" id="q7o1desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$151K a $200K</th>
+              <td><input type="radio" name="q7reventa" value="151Ka200Kreventa" id="q7o2reventa"></td>
+              <td><input type="radio" name="q7desarrollos" value="151Ka200Kdesarrollos" id="q7o2desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$201K a $250K</th>
+              <td><input type="radio" name="q7reventa" value="201Ka250Kreventa" id="q7o3reventa"></td>
+              <td><input type="radio" name="q7desarrollos" value="201Ka250Kdesarrollos" id="q7o3desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$251K a $300K</th>
+              <td><input type="radio" name="q7reventa" value="251Ka300Kreventa" id="q7o4reventa"></td>
+              <td><input type="radio" name="q7desarrollos" value="251Ka300Kdesarrollos" id="q7o4desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$301K a $350K</th>
+              <td><input type="radio" name="q7reventa" value="301Ka350Kreventa" id="q7o5reventa"></td>
+              <td><input type="radio" name="q7desarrollos" value="301Ka350Kdesarrollos" id="q7o5desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$351K a $400K</th>
+              <td><input type="radio" name="q7reventa" value="351Ka400Kreventa" id="q7o6reventa"></td>
+              <td><input type="radio" name="q7desarrollos" value="351Ka400Kdesarrollos" id="q7o6desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$401K a $450K</th>
+              <td><input type="radio" name="q7reventa" value="401Ka450Kreventa" id="q7o7reventa"></td>
+              <td><input type="radio" name="q7desarrollos" value="401Ka450Kdesarrollos" id="q7o7desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$451K a $500K</th>
+              <td><input type="radio" name="q7reventa" value="451Ka500Kreventa" id="q7o8reventa"></td>
+              <td><input type="radio" name="q7desarrollos" value="451Ka500Kdesarrollos" id="q7o8desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$501K+</th>
+              <td><input type="radio" name="q7reventa" value="501K+reventa" id="q7o9reventa"></td>
+              <td><input type="radio" name="q7desarrollos" value="501K+desarrollos" id="q7o9desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q7reventa" value="novendoreventa" id="q7o10reventa"></td>
+              <td><input type="radio" name="q7desarrollos" value="novendodesarrollos" id="q7o10desarrollos"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q8">
+        <h5>8.- La forma de pago que más se presentó durante el 2023 fue...</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>Contado</th>
+              <td><input type="radio" name="q8reventa" value="contadoReventa" id="q8o1reventa"></td>
+              <td><input type="radio" name="q8desarrollos" value="contadoDesarrollos" id="q8o1desarrollos"></td>
+            </tr>
+            <tr>
+              <th>Crédito bancario</th>
+              <td><input type="radio" name="q8reventa" value="creditoBancarioReventa" id="q8o2reventa"></td>
+              <td><input type="radio" name="q8desarrollos" value="creditoBancarioDesarrollos" id="q8o2desarrollos"></td>
+            </tr>
+            <tr>
+              <th>Financiamiento</th>
+              <td><input type="radio" name="q8reventa" value="financiamientoReventa" id="q8o3reventa"></td>
+              <td><input type="radio" name="q8desarrollos" value="financiamientoDesarrollos" id="q8o3desarrollos"></td>
+            </tr>
+            <tr>
+              <th>Directo por el vendedor</th>
+              <td><input type="radio" name="q8reventa" value="directoPorElVendedorReventa" id="q8o4reventa"></td>
+              <td><input type="radio" name="q8desarrollos" value="directoPorElVendedorDesarrollos" id="q8o4desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No tuve ventas</th>
+              <td><input type="radio" name="q8reventa" value="noTuveVentasReventa" id="q8o5reventa"></td>
+              <td><input type="radio" name="q8desarrollos" value="noTuveVentasDesarrollos" id="q8o5desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q8reventa" value="noVendoReventa" id="q8o6reventa"></td>
+              <td><input type="radio" name="q8desarrollos" value="noVendoDesarrollos" id="q8o6desarrollos"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q9">
+        <h5>9.- En 2023, el rango de edad de la mayoría de los clientes fue de...</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>25 a 35 años</th>
+              <td><input type="radio" name="q9reventa" value="25a35Reventa" id="q9o1reventa"></td>
+              <td><input type="radio" name="q9desarrollos" value="25a35Desarrollos" id="q9o1desarrollos"></td>
+            </tr>
+            <tr>
+              <th>36 a 45 años</th>
+              <td><input type="radio" name="q9reventa" value="36a45Reventa" id="q9o2reventa"></td>
+              <td><input type="radio" name="q9desarrollos" value="36a45Desarrollos" id="q9o2desarrollos"></td>
+            </tr>
+            <tr>
+              <th>46 a 55 años</th>
+              <td><input type="radio" name="q9reventa" value="46a55Reventa" id="q9o3reventa"></td>
+              <td><input type="radio" name="q9desarrollos" value="46a55Desarrollos" id="q9o3desarrollos"></td>
+            </tr>
+            <tr>
+              <th>56 a 65 años</th>
+              <td><input type="radio" name="q9reventa" value="56a65Reventa" id="q9o4reventa"></td>
+              <td><input type="radio" name="q9desarrollos" value="56a65Desarrollos" id="q9o4desarrollos"></td>
+            </tr>
+            <tr>
+              <th>66 a 75 años</th>
+              <td><input type="radio" name="q9reventa" value="66a75Reventa" id="q9o5reventa"></td>
+              <td><input type="radio" name="q9desarrollos" value="66a75Desarrollos" id="q9o5desarrollos"></td>
+            </tr>
+            <tr>
+              <th>76 años +</th>
+              <td><input type="radio" name="q9reventa" value="76+Reventa" id="q9o6reventa"></td>
+              <td><input type="radio" name="q9desarrollos" value="76+Desarrollos" id="q9o6desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No tuve ventas</th>
+              <td><input type="radio" name="q9reventa" value="noTuveVentasReventa" id="q9o7reventa"></td>
+              <td><input type="radio" name="q9desarrollos" value="noTuveVentasDesarrollos" id="q9o7desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q9reventa" value="noVendoReventa" id="q9o8reventa"></td>
+              <td><input type="radio" name="q9desarrollos" value="noVendoDesarrollos" id="q9o8desarrollos"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q10">
+        <h5>10.- En 2023, el rango de edad de la mayoría de los clientes fue de...</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>California, Estados Unidos</th>
+              <td><input type="checkbox" name="q10reventa" value="californiaEstadosUnidosReventa" id="q10o1reventa" onclick="uncheckLast2OptionsQ10Reventa(this)"></td>
+              <td><input type="checkbox" name="q10desarrollos" value="californiaEstadosUnidosDesarrollos" id="q10o1desarrollos" onclick="uncheckLast2OptionsQ10Desarrollos(this)"></td>
+            </tr>
+            <tr>
+              <th>Tijuana</th>
+              <td><input type="checkbox" name="q10reventa" value="tijuanaReventa" id="q10o2reventa" onclick="uncheckLast2OptionsQ10Reventa(this)"></td>
+              <td><input type="checkbox" name="q10desarrollos" value="tijuanaDesarrollos" id="q10o2desarrollos" onclick="uncheckLast2OptionsQ10Desarrollos(this)"></td>
+            </tr>
+            <tr>
+              <th>Mexicali</th>
+              <td><input type="checkbox" name="q10reventa" value="mexicaliReventa" id="q10o3reventa" onclick="uncheckLast2OptionsQ10Reventa(this)"></td>
+              <td><input type="checkbox" name="q10desarrollos" value="mexicaliDesarrollos" id="q10o3desarrollos" onclick="uncheckLast2OptionsQ10Desarrollos(this)"></td>
+            </tr>
+            <tr>
+              <th>Otros, escribe el nombre de la ciudad o ciudades</th>
+              <td><input type="text" name="q10reventa" id="q10o4reventa" oninput="uncheckLast2OptionsQ10Reventa(this)"></td>
+              <td><input type="text" name="q10desarrollos" id="q10o4desarrollos" oninput="uncheckLast2OptionsQ10Desarrollos(this)"></td>
+            </tr>
+            <tr>
+              <th>No tuve ventas</th>
+              <td><input type="radio" name="q10reventa" value="noTuveVentasReventa" id="q10o5reventa" onclick="disableOptionsQ10Reventa(this)"></td>
+              <td><input type="radio" name="q10desarrollos" value="noTuveVentasDesarrollos" id="q10o5desarrollos" onclick="disableOptionsQ10Desarrollos(this)"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q10reventa" value="noVendoReventa" id="q10o6reventa" onclick="disableOptionsQ10Reventa(this)"></td>
+              <td><input type="radio" name="q10desarrollos" value="noVendoDesarrollos" id="q10o6desarrollos" onclick="disableOptionsQ10Desarrollos(this)"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q11">
+        <h5>11.- Los compradores en su mayoría compraron para...</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>Vivir</th>
+              <td><input type="checkbox" name="q11reventa" value="VivirReventa" id="q11o1reventa" onclick="uncheckLast2OptionsQ11Reventa(this)"></td>
+              <td><input type="checkbox" name="q11desarrollos" value="VivirDesarrollos" id="q11o1desarrollos" onclick="uncheckLast2OptionsQ11Desarrollos(this)"></td>
+            </tr>
+            <tr>
+              <th>Rentar</th>
+              <td><input type="checkbox" name="q11reventa" value="RentarReventa" id="q11o2reventa" onclick="uncheckLast2OptionsQ11Reventa(this)"></td>
+              <td><input type="checkbox" name="q11desarrollos" value="RentarDesarrollos" id="q11o2desarrollos" onclick="uncheckLast2OptionsQ11Desarrollos(this)"></td>
+            </tr>
+            <tr>
+              <th>Tener una second home</th>
+              <td><input type="checkbox" name="q11reventa" value="secondHomeReventa" id="q11o3reventa" onclick="uncheckLast2OptionsQ11Reventa(this)"></td>
+              <td><input type="checkbox" name="q11desarrollos" value="secondHomeDesarrollos" id="q11o3desarrollos" onclick="uncheckLast2OptionsQ11Desarrollos(this)"></td>
+            </tr>
+            <tr>
+              <th>Otros, escribe el o los otros usos</th>
+              <td><input type="text" name="q11reventa" id="q11o4reventa" oninput="uncheckLast2OptionsQ11Reventa(this)"></td>
+              <td><input type="text" name="q11desarrollos" id="q11o4desarrollos" oninput="uncheckLast2OptionsQ11Desarrollos(this)"></td>
+            </tr>
+            <tr>
+              <th>No tuve ventas</th>
+              <td><input type="radio" name="q11reventa" value="noTuveVentasReventa" id="q11o5reventa" onclick="disableOptionsQ11Reventa(this)"></td>
+              <td><input type="radio" name="q11desarrollos" value="noTuveVentasDesarrollos" id="q11o5desarrollos" onclick="disableOptionsQ11Desarrollos(this)"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q11reventa" value="noVendoReventa" id="q11o6reventa" onclick="disableOptionsQ11Reventa(this)"></td>
+              <td><input type="radio" name="q11desarrollos" value="noVendoDesarrollos" id="q11o6desarrollos" onclick="disableOptionsQ11Desarrollos(this)"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q12">
+        <h5>12.- Durante el año, la mayor parte de los clientes se generaron por...</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>Internet y redes sociales</th>
+              <td><input type="radio" name="q12reventa" value="internetYRedesSocialesReventa" id="q12o1reventa"></td>
+              <td><input type="radio" name="q12desarrollos" value="internetYRedesSocialesDesarrollos" id="q12o1desarrollos"></td>
+            </tr>
+            <tr>
+              <th>Referidos</th>
+              <td><input type="radio" name="q12reventa" value="referidosReventa" id="q12o2reventa"></td>
+              <td><input type="radio" name="q12desarrollos" value="referidosDesarrollos" id="q12o2desarrollos"></td>
+            </tr>
+            <tr>
+              <th>Llamada</th>
+              <td><input type="radio" name="q12reventa" value="llamadaReventa" id="q12o3reventa"></td>
+              <td><input type="radio" name="q12desarrollos" value="llamadaDesarrollos" id="q12o3desarrollos"></td>
+            </tr>
+            <tr>
+              <th>Terrestre(walk-in)</th>
+              <td><input type="radio" name="q12reventa" value="terrestreWalkInReventa" id="q12o4reventa"></td>
+              <td><input type="radio" name="q12desarrollos" value="terrestreWalkInDesarrollos" id="q12o4desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No tuve ventas</th>
+              <td><input type="radio" name="q12reventa" value="noTuveVentasReventa" id="q12o5reventa"></td>
+              <td><input type="radio" name="q12desarrollos" value="noTuveVentasDesarrollos" id="q12o5desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q12reventa" value="noVendoReventa" id="q12o6reventa"></td>
+              <td><input type="radio" name="q12desarrollos" value="noVendoDesarrollos" id="q12o6desarrollos"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q13">
+        <h5>13.- ¿Cómo fueron sus ventas en el año 2023 en comparación con el año 2022?</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>Mejor</th>
+              <td><input type="radio" name="q13reventa" value="mejorReventa" id="q13o1reventa"></td>
+              <td><input type="radio" name="q13desarrollos" value="mejorDesarrollos" id="q13o1desarrollos"></td>
+            </tr>
+            <tr>
+              <th>Igual</th>
+              <td><input type="radio" name="q13reventa" value="igualReventa" id="q13o2reventa"></td>
+              <td><input type="radio" name="q13desarrollos" value="igualDesarrollos" id="q13o2desarrollos"></td>
+            </tr>
+            <tr>
+              <th>Peor</th>
+              <td><input type="radio" name="q13reventa" value="peorReventa" id="q13o3reventa"></td>
+              <td><input type="radio" name="q13desarrollos" value="peorDesarrollos" id="q13o3desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q13reventa" value="noVendoReventa" id="q13o4reventa"></td>
+              <td><input type="radio" name="q13desarrollos" value="noVendoDesarrollos" id="q13o4desarrollos"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q14">
+        <h5>14.- En base a su respuesta anterior, ¿cuales considera que fueron los <strong>motivos</strong>?</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Escribe tu respuesta en el recuadro inferior</footer>
+        </blockquote>
+        <div>
+          <textarea class="form-control" id="q14response" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="q15">
+        <h5>15.- ¿Cómo fueron sus ventas en el año 2023 en comparación con el año 2022?</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>Condominios</th>
+              <td><input type="number" name="q15reventa" id="q15o1reventa"></td>
+              <td><input type="number" name="q15desarrollos" id="q15o1desarrollos"></td>
+            </tr>
+            <tr>
+              <th>Casas</th>
+              <td><input type="number" name="q15reventa" id="q15o2reventa"></td>
+              <td><input type="number" name="q15desarrollos" id="q15o2desarrollos"></td>
+            </tr>
+            <tr>
+              <th>Lotes</th>
+              <td><input type="number" name="q15reventa" id="q15o3reventa"></td>
+              <td><input type="number" name="q15desarrollos" id="q15o3desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="checkbox" name="q15reventa" id="q15o4reventa"></td>
+              <td><input type="checkbox" name="q15desarrollos" id="q15o64esarrollos"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q16">
+        <h5>16.- Actualmente, ¿cuál es el precio promedio de los condominios en...? (doláres)</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>$100K a $150K</th>
+              <td><input type="radio" name="q16reventa" value="100Ka150KReventa" id="q16o1reventa"></td>
+              <td><input type="radio" name="q16desarrollos" value="100Ka150KDesarrollos" id="q16o1desarrollos"></td>
+            </tr>
+            <tr>
+              <th>151K a $200K</th>
+              <td><input type="radio" name="q16reventa" value="151Ka200KReventa" id="q16o2reventa"></td>
+              <td><input type="radio" name="q16desarrollos" value="151Ka200KDesarrollos" id="q16o2desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$201K a 250K</th>
+              <td><input type="radio" name="q16reventa" value="201Ka250KReventa" id="q16o3reventa"></td>
+              <td><input type="radio" name="q16desarrollos" value="201Ka250KDesarrollos" id="q16o3desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$251K a $300K</th>
+              <td><input type="radio" name="q16reventa" value="251Ka300KReventa" id="q16o4reventa"></td>
+              <td><input type="radio" name="q16desarrollos" value="251Ka300KDesarrollos" id="q16o4desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$301K a $350K</th>
+              <td><input type="radio" name="q16reventa" value="301Ka350KReventa" id="q16o5reventa"></td>
+              <td><input type="radio" name="q16desarrollos" value="301Ka350KDesarrollos" id="q16o5desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$351K a $400K</th>
+              <td><input type="radio" name="q16reventa" value="351Ka400KReventa" id="q16o6reventa"></td>
+              <td><input type="radio" name="q16desarrollos" value="351Ka400KDesarrollos" id="q16o6desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$401K a $450K</th>
+              <td><input type="radio" name="q16reventa" value="401Ka450KReventa" id="q16o7reventa"></td>
+              <td><input type="radio" name="q16desarrollos" value="401Ka450KDesarrollos" id="q16o7desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$451K a $500K </th>
+              <td><input type="radio" name="q16reventa" value="451Ka500KReventa" id="q16o8reventa"></td>
+              <td><input type="radio" name="q16desarrollos" value="451Ka500KDesarrollos" id="q16o8desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$501K+</th>
+              <td><input type="radio" name="q16reventa" value="501K+Reventa" id="q16o9reventa"></td>
+              <td><input type="radio" name="q16desarrollos" value="501K+Desarrollos" id="q16o9desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q16reventa" value="noVendoReventa" id="q16o10reventa"></td>
+              <td><input type="radio" name="q16desarrollos" value="noVendoDesarrollos" id="q16o10desarrollos"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q17">
+        <h5>17.- Actualmente, ¿cuál es el precio promedio de las casas en...? (doláres)</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>$100K a $150K</th>
+              <td><input type="radio" name="q17reventa" value="100Ka150KReventa" id="q17o1reventa"></td>
+              <td><input type="radio" name="q17desarrollos" value="100Ka150KDesarrollos" id="q17o1desarrollos"></td>
+            </tr>
+            <tr>
+              <th>151K a $200K</th>
+              <td><input type="radio" name="q17reventa" value="151Ka200KReventa" id="q17o2reventa"></td>
+              <td><input type="radio" name="q17desarrollos" value="151Ka200KDesarrollos" id="q17o2desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$201K a 250K</th>
+              <td><input type="radio" name="q17reventa" value="201Ka250KReventa" id="q17o3reventa"></td>
+              <td><input type="radio" name="q17desarrollos" value="201Ka250KDesarrollos" id="q17o3desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$251K a $300K</th>
+              <td><input type="radio" name="q17reventa" value="251Ka300KReventa" id="q17o4reventa"></td>
+              <td><input type="radio" name="q17desarrollos" value="251Ka300KDesarrollos" id="q17o4desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$301K a $350K</th>
+              <td><input type="radio" name="q17reventa" value="301Ka350KReventa" id="q17o5reventa"></td>
+              <td><input type="radio" name="q17desarrollos" value="301Ka350KDesarrollos" id="q17o5desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$351K a $400K</th>
+              <td><input type="radio" name="q17reventa" value="351Ka400KReventa" id="q17o6reventa"></td>
+              <td><input type="radio" name="q17desarrollos" value="351Ka400KDesarrollos" id="q17o6desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$401K a $450K</th>
+              <td><input type="radio" name="q17reventa" value="401Ka450KReventa" id="q17o7reventa"></td>
+              <td><input type="radio" name="q17desarrollos" value="401Ka450KDesarrollos" id="q17o7desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$451K a $500K </th>
+              <td><input type="radio" name="q17reventa" value="451Ka500KReventa" id="q17o8reventa"></td>
+              <td><input type="radio" name="q17desarrollos" value="451Ka500KDesarrollos" id="q17o8desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$501K+</th>
+              <td><input type="radio" name="q17reventa" value="501K+Reventa" id="q17o9reventa"></td>
+              <td><input type="radio" name="q17desarrollos" value="501K+Desarrollos" id="q17o9desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q17reventa" value="noVendoReventa" id="q17o10reventa"></td>
+              <td><input type="radio" name="q17desarrollos" value="noVendoDesarrollos" id="q17o10desarrollos"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="q18">
+        <h5>18.- Actualmente, ¿cuál es el precio promedio de los lotes en...? (doláres)</h5>
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">Selecciona una opción</footer>
+        </blockquote>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th></th>
+              <td>Reventa</td>
+              <td>Desarrollos</td>
+            </tr>
+            <tr>
+              <th>$100K a $150K</th>
+              <td><input type="radio" name="q18reventa" value="100Ka150KReventa" id="q18o1reventa"></td>
+              <td><input type="radio" name="q18desarrollos" value="100Ka150KDesarrollos" id="q18o1desarrollos"></td>
+            </tr>
+            <tr>
+              <th>151K a $200K</th>
+              <td><input type="radio" name="q18reventa" value="151Ka200KReventa" id="q18o2reventa"></td>
+              <td><input type="radio" name="q18desarrollos" value="151Ka200KDesarrollos" id="q18o2desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$201K a 250K</th>
+              <td><input type="radio" name="q18reventa" value="201Ka250KReventa" id="q18o3reventa"></td>
+              <td><input type="radio" name="q18desarrollos" value="201Ka250KDesarrollos" id="q18o3desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$251K a $300K</th>
+              <td><input type="radio" name="q18reventa" value="251Ka300KReventa" id="q18o4reventa"></td>
+              <td><input type="radio" name="q18desarrollos" value="251Ka300KDesarrollos" id="q18o4desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$301K a $350K</th>
+              <td><input type="radio" name="q18reventa" value="301Ka350KReventa" id="q18o5reventa"></td>
+              <td><input type="radio" name="q18desarrollos" value="301Ka350KDesarrollos" id="q18o5desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$351K a $400K</th>
+              <td><input type="radio" name="q18reventa" value="351Ka400KReventa" id="q18o6reventa"></td>
+              <td><input type="radio" name="q18desarrollos" value="351Ka400KDesarrollos" id="q18o6desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$401K a $450K</th>
+              <td><input type="radio" name="q18reventa" value="401Ka450KReventa" id="q18o7reventa"></td>
+              <td><input type="radio" name="q18desarrollos" value="401Ka450KDesarrollos" id="q18o7desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$451K a $500K </th>
+              <td><input type="radio" name="q18reventa" value="451Ka500KReventa" id="q18o8reventa"></td>
+              <td><input type="radio" name="q18desarrollos" value="451Ka500KDesarrollos" id="q18o8desarrollos"></td>
+            </tr>
+            <tr>
+              <th>$501K+</th>
+              <td><input type="radio" name="q18reventa" value="501K+Reventa" id="q18o9reventa"></td>
+              <td><input type="radio" name="q18desarrollos" value="501K+Desarrollos" id="q18o9desarrollos"></td>
+            </tr>
+            <tr>
+              <th>No vendo</th>
+              <td><input type="radio" name="q18reventa" value="noVendoReventa" id="q18o10reventa"></td>
+              <td><input type="radio" name="q18desarrollos" value="noVendoDesarrollos" id="q18o10desarrollos"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <button type="button" onclick="getValues()" class="btn btn-primary" id="buttonSend">
+      Enviar
+    </button>
+  </div>
+  <div id="divToInsertHTMLTags"></div>
+</body>
+<script src="main.js"></script>
+</html>
