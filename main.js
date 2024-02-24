@@ -527,8 +527,11 @@ function getValues(){
   }
   // Q10
   let q10reventaPRE = document.getElementsByName("q10reventa")
+  q10reventa = []
   for (let i = 0; i < q10reventaPRE.length; i++) {
+    if(q10reventaPRE[i].checked == true || q10reventaPRE[i].value != "californiaEstadosUnidosReventa" || q10reventaPRE[i].value != "tijuanaReventa" ){
       q10reventa.push(q10reventaPRE[i].value)
+    }
   }
   let q10desarrollosPRE = document.getElementsByName("q10desarrollos")
   q11 = [document.getElementsByName("q11reventa"), document.getElementsByName("q11desarrollos")]
