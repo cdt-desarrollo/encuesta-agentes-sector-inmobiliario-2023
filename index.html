@@ -38,13 +38,13 @@
         <div class="input-group-prepend">
           <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default">Nombre</span>
         </div>
-        <input type="text" id ="companyName" class="form-control" placeholder="Opcional" name="personalInformation">
+        <input type="text" id ="staffName" class="form-control" placeholder="Opcional" name="personalInformation">
       </div>
       <div class="input-group mb-2" style="padding-bottom: 10px;">
         <div class="input-group-prepend d-flex">
           <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default">* Empresa</span>
         </div>
-        <input type="text" id ="staffName" class="form-control" required placeholder="Obligatorio" name="personalInformation">
+        <input type="text" id ="companyName" class="form-control" required placeholder="Obligatorio" name="personalInformation">
       </div>
       <div class="input-group mb-2" style="padding-bottom: 10px;">
         <div class="input-group-prepend">
@@ -83,6 +83,7 @@
         <h5>2.- ¿Cuántas unidades de <strong>condominios</strong> vendió durante el 2023?</h5>
         <blockquote class="blockquote mb-0">
           <footer class="blockquote-footer">Escribe la cantidad o selecciona la casilla "No vendo condominios"</footer>
+          <footer class="blockquote-footer">Al seleccionar esta casilla se auto responden las preguntas 3, 15 y 16</footer>
         </blockquote>
         <div>
           <cite>No vendo condominios</cite>
@@ -170,6 +171,7 @@
         <h5>4.- ¿Cuántas unidades de <strong>casas</strong> vendió durante el 2023?</h5>
         <blockquote class="blockquote mb-0">
           <footer class="blockquote-footer">Escribe la cantidad o selecciona la casilla "No vendo casas"</footer>
+          <footer class="blockquote-footer">Al seleccionar esta casilla se auto responden las preguntas 5, 15 y 17</footer>
         </blockquote>
         <div>
           <cite>No vendo casas</cite>
@@ -257,6 +259,7 @@
         <h5>6.- ¿Cuántas unidades de <strong>lotes</strong> vendió durante el 2023?</h5>
         <blockquote class="blockquote mb-0">
           <footer class="blockquote-footer">Escribe la cantidad o selecciona la casilla "No vendo lotes"</footer>
+          <footer class="blockquote-footer">Al seleccionar esta casilla se auto responden las preguntas 7, 15 y 18</footer>
         </blockquote>
         <div>
           <cite>No vendo lotes</cite>
@@ -441,7 +444,7 @@
         </table>
       </div>
       <div class="q10">
-        <h5>10.- En 2023, el rango de edad de la mayoría de los clientes fue de...</h5>
+        <h5>10.- En 2023, la mayoría de los compradores lo vistaron de...</h5>
         <blockquote class="blockquote mb-0">
           <footer class="blockquote-footer">Selecciona una opción</footer>
         </blockquote>
@@ -646,11 +649,11 @@
               <td><input type="number" name="q15reventa" id="q15o3reventa"></td>
               <td><input type="number" name="q15desarrollos" id="q15o3desarrollos"></td>
             </tr>
-            <tr>
+            <!-- <tr>
               <th>No vendo</th>
               <td><input type="checkbox" name="q15reventa" id="q15o4reventa"></td>
               <td><input type="checkbox" name="q15desarrollos" id="q15o64esarrollos"></td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
