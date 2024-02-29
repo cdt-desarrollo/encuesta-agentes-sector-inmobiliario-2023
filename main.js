@@ -1,5 +1,14 @@
 var q0companyName,q0staffName,q0email,q0phone,q1,q2reventa,q2desarrollos,q3reventa,q3desarrollos,q4reventa,q4desarrollos,q5reventa,q5desarrollos,q6reventa,q6desarrollos,q7reventa,q7desarrollos,q8reventa,q8desarrollos,q9reventa,q9desarrollos,q10reventa,q10desarrollos,q11reventa,q11desarrollos,q12reventa,q12desarrollos,q13reventa,q13desarrollos,q14,q15reventa,q15desarrollos,q16reventa,q16desarrollos,q17reventa,q17desarrollos,q18reventa,q18desarrollos,state,corrects
 
+function popUp(button){
+  Swal.fire({
+    icon: "info",
+    title: "Este cuestionario solo es para agentes.",
+    confirmButtonColor: "#3085d6"
+  })
+  button.checked = false
+}
+
 function novendocondominios(button){
   q2InputReventaCantidadCondominios = document.getElementById("q2InputReventaCantidadCondominios")
   q2InputDesarrollosCantidadCondominios = document.getElementById("q2InputDesarrollosCantidadCondominios")
