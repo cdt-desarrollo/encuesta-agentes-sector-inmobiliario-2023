@@ -7,10 +7,10 @@ function novendocondominios(button){
   q2CheckboxNoVendoDesarrollosCondominios = document.getElementById("q2CheckboxNoVendoDesarrollosCondominios")
   q3OptionsReventa = document.getElementsByName("q3reventa")
   q3OptionsDesarrollos = document.getElementsByName("q3desarrollos")
-  q15o1reventa = document.getElementById("q15o1reventa")
-  q15o1desarrollos = document.getElementById("q15o1desarrollos")
-  q16reventa = document.getElementsByName("q16reventa")
-  q16desarrollos = document.getElementsByName("q16desarrollos")
+  // q15o1reventa = document.getElementById("q15o1reventa")
+  // q15o1desarrollos = document.getElementById("q15o1desarrollos")
+  // q16reventa = document.getElementsByName("q16reventa")
+  // q16desarrollos = document.getElementsByName("q16desarrollos")
   if (button.checked == true){
     q2InputReventaCantidadCondominios.disabled = true
     q2InputReventaCantidadCondominios.type = "text"
@@ -31,18 +31,18 @@ function novendocondominios(button){
     reventaCondominios = true
     desarrollosCondominios = true
     noVendoCondominios = true
-    q15o1reventa.type = "text"
-    q15o1reventa.value = "No reventa condominios"
-    q15o1reventa.disabled = true
-    q15o1desarrollos.type = "text"
-    q15o1desarrollos.value = "No desarrollos condominios"
-    q15o1desarrollos.disabled = true
-    for (let i = 0; i <= q16reventa.length-2; i++) {
-      q16reventa[i].disabled = true
-      q16desarrollos[i].disabled = true
-    }
-    q16reventa[q16reventa.length-1].checked = true
-    q16desarrollos[q16reventa.length-1].checked = true
+    // q15o1reventa.type = "text"
+    // q15o1reventa.value = "No reventa condominios"
+    // q15o1reventa.disabled = true
+    // q15o1desarrollos.type = "text"
+    // q15o1desarrollos.value = "No desarrollos condominios"
+    // q15o1desarrollos.disabled = true
+    // for (let i = 0; i <= q16reventa.length-2; i++) {
+    //   q16reventa[i].disabled = true
+    //   q16desarrollos[i].disabled = true
+    // }
+    // q16reventa[q16reventa.length-1].checked = true
+    // q16desarrollos[q16reventa.length-1].checked = true
   }
   else if(button.checked == false){
     q2InputReventaCantidadCondominios.disabled = false
@@ -64,18 +64,18 @@ function novendocondominios(button){
     reventaCondominios = false
     desarrollosCondominios = false
     noVendoCondominios = false
-    q15o1reventa.type = "number"
-    q15o1reventa.value = ""
-    q15o1reventa.disabled = false
-    q15o1desarrollos.type = "number"
-    q15o1desarrollos.value = ""
-    q15o1desarrollos.disabled = false
-    for (let i = 0; i <= q16reventa.length-2; i++) {
-      q16reventa[i].disabled = false
-      q16desarrollos[i].disabled = false
-    }
-    q16reventa[q16reventa.length-1].checked = false
-    q16desarrollos[q16reventa.length-1].checked = false
+    // q15o1reventa.type = "number"
+    // q15o1reventa.value = ""
+    // q15o1reventa.disabled = false
+    // q15o1desarrollos.type = "number"
+    // q15o1desarrollos.value = ""
+    // q15o1desarrollos.disabled = false
+    // for (let i = 0; i <= q16reventa.length-2; i++) {
+    //   q16reventa[i].disabled = false
+    //   q16desarrollos[i].disabled = false
+    // }
+    // q16reventa[q16reventa.length-1].checked = false
+    // q16desarrollos[q16reventa.length-1].checked = false
   }
 }
 function novendocasas(button){
@@ -85,10 +85,10 @@ function novendocasas(button){
   q4CheckboxNoVendoDesarrollosCasas = document.getElementById("q4CheckboxNoVendoDesarrollosCasas")
   q5OptionsReventa = document.getElementsByName("q5reventa")
   q5OptionsDesarrollos = document.getElementsByName("q5desarrollos")
-  q15o2reventa = document.getElementById("q15o2reventa")
-  q15o2desarrollos = document.getElementById("q15o2desarrollos")
-  q17reventa = document.getElementsByName("q17reventa")
-  q17desarrollos = document.getElementsByName("q17desarrollos")
+  // q15o2reventa = document.getElementById("q15o2reventa")
+  // q15o2desarrollos = document.getElementById("q15o2desarrollos")
+  // q17reventa = document.getElementsByName("q17reventa")
+  // q17desarrollos = document.getElementsByName("q17desarrollos")
   if (button.checked == true){
     q4InputReventaCantidadCasas.disabled = true
     q4InputReventaCantidadCasas.type = "text"
@@ -109,18 +109,18 @@ function novendocasas(button){
     reventaCasas = true
     desarrollosCasas = true
     noVendoCasas = true
-    q15o2reventa.type = "text"
-    q15o2reventa.value = "No reventa casas"
-    q15o2reventa.disabled = true
-    q15o2desarrollos.type = "text"
-    q15o2desarrollos.value = "No desarrollos casas"
-    q15o2desarrollos.disabled = true
-    for (let i = 0; i <= q17reventa.length-2; i++) {
-      q17reventa[i].disabled = true
-      q17desarrollos[i].disabled = true
-    }
-    q17reventa[q17reventa.length-1].checked = true
-    q17desarrollos[q17reventa.length-1].checked = true
+    // q15o2reventa.type = "text"
+    // q15o2reventa.value = "No reventa casas"
+    // q15o2reventa.disabled = true
+    // q15o2desarrollos.type = "text"
+    // q15o2desarrollos.value = "No desarrollos casas"
+    // q15o2desarrollos.disabled = true
+    // for (let i = 0; i <= q17reventa.length-2; i++) {
+    //   q17reventa[i].disabled = true
+    //   q17desarrollos[i].disabled = true
+    // }
+    // q17reventa[q17reventa.length-1].checked = true
+    // q17desarrollos[q17reventa.length-1].checked = true
   }
   else if(button.checked == false){
     q4InputReventaCantidadCasas.disabled = false
@@ -142,18 +142,18 @@ function novendocasas(button){
     reventaCasas = false
     desarrollosCasas = false
     noVendoCasas = false
-    q15o2reventa.type = "number"
-    q15o2reventa.value = ""
-    q15o2reventa.disabled = false
-    q15o2desarrollos.type = "number"
-    q15o2desarrollos.value = ""
-    q15o2desarrollos.disabled = false
-    for (let i = 0; i <= q17reventa.length-2; i++) {
-      q17reventa[i].disabled = false
-      q17desarrollos[i].disabled = false
-    }
-    q17reventa[q17reventa.length-1].checked = false
-    q17desarrollos[q17reventa.length-1].checked = false
+    // q15o2reventa.type = "number"
+    // q15o2reventa.value = ""
+    // q15o2reventa.disabled = false
+    // q15o2desarrollos.type = "number"
+    // q15o2desarrollos.value = ""
+    // q15o2desarrollos.disabled = false
+    // for (let i = 0; i <= q17reventa.length-2; i++) {
+    //   q17reventa[i].disabled = false
+    //   q17desarrollos[i].disabled = false
+    // }
+    // q17reventa[q17reventa.length-1].checked = false
+    // q17desarrollos[q17reventa.length-1].checked = false
   }
 }
 function novendolotes(button){
@@ -163,10 +163,10 @@ function novendolotes(button){
   q6CheckboxNoVendoDesarrollosLotes = document.getElementById("q6CheckboxNoVendoDesarrollosLotes")
   q7OptionsReventa = document.getElementsByName("q7reventa")
   q7OptionsDesarrollos = document.getElementsByName("q7desarrollos")
-  q15o3reventa = document.getElementById("q15o3reventa")
-  q15o3desarrollos = document.getElementById("q15o3desarrollos")
-  q18reventa = document.getElementsByName("q18reventa")
-  q18desarrollos = document.getElementsByName("q18desarrollos")
+  // q15o3reventa = document.getElementById("q15o3reventa")
+  // q15o3desarrollos = document.getElementById("q15o3desarrollos")
+  // q18reventa = document.getElementsByName("q18reventa")
+  // q18desarrollos = document.getElementsByName("q18desarrollos")
   if (button.checked == true){
     q6InputReventaCantidadLotes.disabled = true
     q6InputReventaCantidadLotes.type = "text"
@@ -187,18 +187,18 @@ function novendolotes(button){
     reventasLotes = true
     desarrollosLotes = true
     noVendoLotes = true
-    q15o3reventa.type = "text"
-    q15o3reventa.value = "No reventa lotes"
-    q15o3reventa.disabled = true
-    q15o3desarrollos.type = "text"
-    q15o3desarrollos.value = "No desarrollos lotes"
-    q15o3desarrollos.disabled = true
-    for (let i = 0; i <= q18reventa.length-2; i++) {
-      q18reventa[i].disabled = true
-      q18desarrollos[i].disabled = true
-    }
-    q18reventa[q18reventa.length-1].checked = true
-    q18desarrollos[q18reventa.length-1].checked = true
+    // q15o3reventa.type = "text"
+    // q15o3reventa.value = "No reventa lotes"
+    // q15o3reventa.disabled = true
+    // q15o3desarrollos.type = "text"
+    // q15o3desarrollos.value = "No desarrollos lotes"
+    // q15o3desarrollos.disabled = true
+    // for (let i = 0; i <= q18reventa.length-2; i++) {
+    //   q18reventa[i].disabled = true
+    //   q18desarrollos[i].disabled = true
+    // }
+    // q18reventa[q18reventa.length-1].checked = true
+    // q18desarrollos[q18reventa.length-1].checked = true
   }
   else if(button.checked == false){
     q6InputReventaCantidadLotes.disabled = false
@@ -220,18 +220,18 @@ function novendolotes(button){
     reventaLotes = false
     desarrollosLotes = false
     noVendoLotes = false
-    q15o3reventa.type = "number"
-    q15o3reventa.value = ""
-    q15o3reventa.disabled = false
-    q15o3desarrollos.type = "number"
-    q15o3desarrollos.value = ""
-    q15o3desarrollos.disabled = false
-    for (let i = 0; i <= q17reventa.length-2; i++) {
-      q18reventa[i].disabled = false
-      q18desarrollos[i].disabled = false
-    }
-    q18reventa[q17reventa.length-1].checked = false
-    q18desarrollos[q17reventa.length-1].checked = false
+    // q15o3reventa.type = "number"
+    // q15o3reventa.value = ""
+    // q15o3reventa.disabled = false
+    // q15o3desarrollos.type = "number"
+    // q15o3desarrollos.value = ""
+    // q15o3desarrollos.disabled = false
+    // for (let i = 0; i <= q17reventa.length-2; i++) {
+    //   q18reventa[i].disabled = false
+    //   q18desarrollos[i].disabled = false
+    // }
+    // q18reventa[q17reventa.length-1].checked = false
+    // q18desarrollos[q17reventa.length-1].checked = false
   }
 }
 
