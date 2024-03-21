@@ -501,6 +501,73 @@ function disableOptionsQ11Desarrollos(button){
   }
 }
 
+function q15noVendoCondominios(checkbox){
+  if(checkbox.checked == true){
+    document.getElementById("q15o1reventa").type = "text"
+    document.getElementById("q15o1reventa").value = "No vendo condominios"
+    document.getElementById("q15o1reventa").disabled = true
+    document.getElementById("q15o1desarrollos").type = "text"
+    document.getElementById("q15o1desarrollos").value = "No vendo condominios"
+    document.getElementById("q15o1desarrollos").disabled = true
+    document.getElementById("q16o10reventa").checked = true
+    document.getElementById("q16o10desarrollos").checked = true
+  }
+  else if(checkbox.checked == false){
+    document.getElementById("q15o1reventa").type = "number"
+    document.getElementById("q15o1reventa").value = ""
+    document.getElementById("q15o1reventa").disabled = false
+    document.getElementById("q15o1desarrollos").type = "number"
+    document.getElementById("q15o1desarrollos").value = ""
+    document.getElementById("q15o1desarrollos").disabled = false
+    document.getElementById("q16o10reventa").checked = false
+    document.getElementById("q16o10desarrollos").checked = false
+  }
+}
+function q15noVendoCasas(checkbox){
+  if(checkbox.checked == true){
+    document.getElementById("q15o2reventa").type = "text"
+    document.getElementById("q15o2reventa").value = "No vendo casas"
+    document.getElementById("q15o2reventa").disabled = true
+    document.getElementById("q15o2desarrollos").type = "text"
+    document.getElementById("q15o2desarrollos").value = "No vendo casas"
+    document.getElementById("q15o2desarrollos").disabled = true
+    document.getElementById("q17o10reventa").checked = true
+    document.getElementById("q17o10desarrollos").checked = true
+  }
+  else if(checkbox.checked == false){
+    document.getElementById("q15o2reventa").type = "number"
+    document.getElementById("q15o2reventa").value = ""
+    document.getElementById("q15o2reventa").disabled = false
+    document.getElementById("q15o2desarrollos").type = "number"
+    document.getElementById("q15o2desarrollos").value = ""
+    document.getElementById("q15o2desarrollos").disabled = false
+    document.getElementById("q17o10reventa").checked = false
+    document.getElementById("q17o10desarrollos").checked = false
+  }
+}
+function q15noVendoLotes(checkbox){
+  if(checkbox.checked == true){
+    document.getElementById("q15o3reventa").type = "text"
+    document.getElementById("q15o3reventa").value = "No vendo lotes"
+    document.getElementById("q15o3reventa").disabled = true
+    document.getElementById("q15o3desarrollos").type = "text"
+    document.getElementById("q15o3desarrollos").value = "No vendo lotes"
+    document.getElementById("q15o3desarrollos").disabled = true
+    document.getElementById("q18o10reventa").checked = true
+    document.getElementById("q18o10desarrollos").checked = true
+  }
+  else if(checkbox.checked == false){
+    document.getElementById("q15o3reventa").type = "number"
+    document.getElementById("q15o3reventa").value = ""
+    document.getElementById("q15o3reventa").disabled = false
+    document.getElementById("q15o3desarrollos").type = "number"
+    document.getElementById("q15o3desarrollos").value = ""
+    document.getElementById("q15o3desarrollos").disabled = false
+    document.getElementById("q18o10reventa").checked = false
+    document.getElementById("q18o10desarrollos").checked = false
+  }
+}
+
 function getValues(){
   // Personal Information
   q0staffName = document.getElementById("staffName").value
